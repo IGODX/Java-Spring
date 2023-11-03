@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="section/head :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="section/header :: header">
+</header>
+<div class="container">
+    <form method="post" th:action="'/blog/' + ${post.getId()} + '/remove'" enctype="multipart/form-data">
+        <div class="mb-3">
+            <h2 th:text="${post.getHeader()}"></h2>
+        </div>
+        <div class="mb-3">
+            <p th:text="${post.getContext()}"></p>
+        </div>
+        <div class="mb-3">
+        <img style="height: 200px; width: auto" id="image" th:src="'/' + ${post.getLinkedImage()}" th:alt="${post.getHeader()}">
+        </div>
+        <div class="mb-3">
+        <input type="submit" class="btn btn-danger" value="Delete">
+        </div>
+    </form>
+</div>
+<footer  th:insert="section/footer :: footer"></footer>
+</body>
+</html>

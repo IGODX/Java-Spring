@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="section/head :: head">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<header th:insert="section/header :: header">
+</header>
+<div class="container">
+  <h2>Posts</h2>
+  <form action="/blog" method="get">
+  <div class="input-group mb-3">
+        <input type="search" name="header" class="form-control">
+        <input type="submit" value="Search" class="btn btn-outline-primary">
+  </div>
+  </form>
+  <div th:each="post : ${posts}">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" th:src="${post.getLinkedImage()}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title" th:text="${post.getHeader()}"></h5>
+        <a th:href="'/blog/' + ${post.getId()} + '/remove'" class="btn btn-outline-danger">Delete</a>
+        <a th:href="'/blog/' + ${post.getId()} + '/edit'" class="btn btn-outline-warning">Edit</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <footer  th:insert="section/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="section/head :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="section/header ::header"></header>
+<form method="post" action="/blog/create" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="header" class="form-label">Header:</label>
+        <input type="text" class="form-control" name="header" id="header">
+    </div>
+    <div class="mb-3">
+        <label for="context" class="form-label">Context</label>
+        <textarea  class="form-control" id="context" name="context"></textarea>
+    </div>  <div class="mb-3 form-check">
+    <div class="mb-3">
+        <input type="file" name="linkedImage">
+    </div>
+</div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<footer th:insert="section/footer ::footer"></footer>
+</body>
+</html>
